@@ -2,8 +2,8 @@
 
 namespace Bu\ExtraParamConverterBundle\Request\ParamConverter;
 
-use Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ConfigurationInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\ParamConverterInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -28,7 +28,7 @@ class PostConverter implements ParamConverterInterface
     /**
      * {@inheritDoc}
      */
-    public function apply(Request $request, ConfigurationInterface $configuration)
+    public function apply(Request $request, ParamConverter $configuration)
     {
         $data = $configuration->isJsonData() ? json_decode($request->getContent(), true) : $request->request->all();
 
@@ -82,7 +82,7 @@ class PostConverter implements ParamConverterInterface
     /**
      * {@inheritDoc}
      */
-    public function supports(ConfigurationInterface $configuration)
+    public function supports(ParamConverter $configuration)
     {
         return ($configuration instanceof ExtraParamConverter);
     }
