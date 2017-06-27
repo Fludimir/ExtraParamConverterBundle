@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\ParamConverterInte
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Doctrine\ORM\EntityManager;
+use Bu\ExtraParamConverterBundle\Configuration\ExtraParamConverter;
 
 /**
  * GetConverter automatically converts GET params to entities if they
@@ -44,7 +45,8 @@ class GetConverter implements ParamConverterInterface
      */
     public function supports(ParamConverter $configuration)
     {
-        return ($configuration instanceof ParamConverter);
+        // GetConverter should not override PostConverter - temp dirty fix for that
+        return ($configuration instanceof ParamConverter) && !($configuration instanceof ExtraParamConverter);
     }
 
 }

@@ -545,7 +545,7 @@ class ExtraParamConverterUnitTest extends \PHPUnit_Framework_TestCase
     {
         $em = $this->getMock('Doctrine\ORM\EntityManager', array(), array(), '', false);
         $config = $this->getMock('Bu\ExtraParamConverterBundle\Configuration\ExtraParamConverter', array(), array(), '', false);
-        $invalidConfig = $this->getMock('Sensio\Bundle\FrameworkExtraBundle\Configuration\ConfigurationInterface', array(), array(), '', false);
+        $invalidConfig = $this->getMock('Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter', array(), array(), '', false);
 
         $converter = new Converter($em);
 

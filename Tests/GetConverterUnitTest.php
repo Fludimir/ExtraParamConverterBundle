@@ -79,7 +79,7 @@ class GetConverterUnitTest extends \PHPUnit_Framework_TestCase
     {
         $em = $this->_quickStub('Doctrine\ORM\EntityManager');
         $config = $this->_quickStub('Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter');
-        $invalidConfig = $this->getMock('Sensio\Bundle\FrameworkExtraBundle\Configuration\ConfigurationInterface');
+        $invalidConfig = $this->_quickStub('Bu\ExtraParamConverterBundle\Configuration\ExtraParamConverter');
 
         $converter = new GetConverter($em);
 
